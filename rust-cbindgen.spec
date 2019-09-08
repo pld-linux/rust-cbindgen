@@ -2,19 +2,19 @@
 Summary:	Tool for generating C bindings to Rust code
 Summary(pl.UTF-8):	Narzędzie do generowania wiązań C do kodu w języku Rust
 Name:		rust-cbindgen
-Version:	0.8.7
-Release:	2
+Version:	0.9.1
+Release:	1
 License:	MPL v2.0
 Group:		Development/Tools
 #Source0Download: https://github.com/eqrion/cbindgen/releases
 Source0:	https://github.com/eqrion/cbindgen/archive/v%{version}/cbindgen-%{version}.tar.gz
-# Source0-md5:	e80be8ee57b32d8424677082d079cb43
+# Source0-md5:	36ec45a92f886fbec2e036bf70b13f21
 # cd cbindgen-%{version}
 # cargo vendor
 # cd ..
 # tar cJf cbindgen-crates-%{version}.tar.xz cbindgen-%{version}/{vendor,Cargo.lock}
 Source1:	cbindgen-crates-%{version}.tar.xz
-# Source1-md5:	531d544bab4383baf6ff3008cae4d6e1
+# Source1-md5:	9c4fb9275d15b30ead75a462c2a19f43
 URL:		https://github.com/eqrion/cbindgen
 BuildRequires:	cargo
 BuildRequires:	rust
@@ -60,5 +60,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ARCHITECTURE.md README.md
+%doc README.md CHANGES contributing.md docs.md internals.md
 %attr(755,root,root) %{_bindir}/cbindgen
