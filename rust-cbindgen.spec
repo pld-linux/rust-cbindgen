@@ -18,7 +18,7 @@ Source1:	cbindgen-crates-%{version}.tar.xz
 URL:		https://github.com/eqrion/cbindgen
 BuildRequires:	cargo
 BuildRequires:	rust
-ExclusiveArch:	%{x8664} %{ix86}
+ExclusiveArch:	%{x8664} %{ix86} aarch64
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
