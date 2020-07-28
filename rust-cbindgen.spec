@@ -53,7 +53,7 @@ rm -rf $RPM_BUILD_ROOT
 export CARGO_HOME="$(pwd)/.cargo"
 
 cargo -v install --frozen --root $RPM_BUILD_ROOT%{_prefix} --path $PWD
-%{__rm} $RPM_BUILD_ROOT%{_prefix}/.crates.toml
+%{__rm} $RPM_BUILD_ROOT%{_prefix}/.crates*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
