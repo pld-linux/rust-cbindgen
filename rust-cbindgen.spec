@@ -1,20 +1,22 @@
 # TODO: use shared crates?
+%define		crates_ver	0.17.0
+
 Summary:	Tool for generating C bindings to Rust code
 Summary(pl.UTF-8):	Narzędzie do generowania wiązań C do kodu w języku Rust
 Name:		rust-cbindgen
-Version:	0.15.0
+Version:	0.17.0
 Release:	1
 License:	MPL v2.0
 Group:		Development/Tools
 #Source0Download: https://github.com/eqrion/cbindgen/releases
 Source0:	https://github.com/eqrion/cbindgen/archive/v%{version}/cbindgen-%{version}.tar.gz
-# Source0-md5:	396f97c1d79ee5307611e7d586b4b011
+# Source0-md5:	319023d51257da454f9a30aa3a358429
 # cd cbindgen-%{version}
 # cargo vendor
 # cd ..
 # tar cJf cbindgen-crates-%{version}.tar.xz cbindgen-%{version}/{vendor,Cargo.lock}
-Source1:	cbindgen-crates-%{version}.tar.xz
-# Source1-md5:	446fd55fe1d587ec28ad6f9bc938b50c
+Source1:	cbindgen-crates-%{crates_ver}.tar.xz
+# Source1-md5:	591b55e08ff5221aa86ab761b5a73ef6
 URL:		https://github.com/eqrion/cbindgen
 BuildRequires:	cargo
 BuildRequires:	rust
@@ -28,7 +30,10 @@ This project can be used to generate C bindings for Rust code.
 Ten projekt służy do generowania wiązań C do kodu w języku Rust.
 
 %prep
-%setup -q -n cbindgen-%{version} -b1
+%setup -q -n cbindgen-%{version} -a1
+
+%{__mv} cbindgen-%{crates_ver}/* .
+sed -i -e 's/@@VERSION@@/%{version}/' Cargo.lock
 
 # use our offline registry
 export CARGO_HOME="$(pwd)/.cargo"
