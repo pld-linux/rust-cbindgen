@@ -1,22 +1,22 @@
 # TODO: use shared crates?
-%define		crates_ver	0.24.3
+%define		crates_ver	0.26.0
 
 Summary:	Tool for generating C bindings to Rust code
 Summary(pl.UTF-8):	Narzędzie do generowania wiązań C do kodu w języku Rust
 Name:		rust-cbindgen
-Version:	0.24.3
+Version:	0.26.0
 Release:	1
 License:	MPL v2.0
 Group:		Development/Tools
 #Source0Download: https://github.com/eqrion/cbindgen/releases
 Source0:	https://github.com/eqrion/cbindgen/archive/v%{version}/cbindgen-%{version}.tar.gz
-# Source0-md5:	6aa2991ca8411f9ebf9961e8b873e884
+# Source0-md5:	f3ef70691bc4743b8f76ca6d27847ba4
 # cd cbindgen-%{version}
 # cargo vendor
 # cd ..
 # tar cJf cbindgen-crates-%{version}.tar.xz cbindgen-%{version}/{vendor,Cargo.lock}
 Source1:	cbindgen-crates-%{crates_ver}.tar.xz
-# Source1-md5:	3e65be492423019a5de8fc1f3844cfd2
+# Source1-md5:	deaba3b63f82630cae6953904e6a0a9e
 URL:		https://github.com/eqrion/cbindgen
 BuildRequires:	cargo
 BuildRequires:	rpmbuild(macros) >= 2.004
