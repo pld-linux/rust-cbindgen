@@ -1,26 +1,26 @@
 # TODO: use shared crates?
-%define		crates_ver	0.26.0
+%define		crates_ver	0.28.0
 
 Summary:	Tool for generating C bindings to Rust code
 Summary(pl.UTF-8):	Narzędzie do generowania wiązań C do kodu w języku Rust
 Name:		rust-cbindgen
-Version:	0.26.0
+Version:	0.28.0
 Release:	1
 License:	MPL v2.0
 Group:		Development/Tools
 #Source0Download: https://github.com/eqrion/cbindgen/releases
 Source0:	https://github.com/eqrion/cbindgen/archive/v%{version}/cbindgen-%{version}.tar.gz
-# Source0-md5:	f3ef70691bc4743b8f76ca6d27847ba4
+# Source0-md5:	0712d991fc8e65121924265d738db71d
 # cd cbindgen-%{version}
 # cargo vendor
 # cd ..
 # tar cJf cbindgen-crates-%{version}.tar.xz cbindgen-%{version}/{vendor,Cargo.lock}
 Source1:	cbindgen-crates-%{crates_ver}.tar.xz
-# Source1-md5:	deaba3b63f82630cae6953904e6a0a9e
+# Source1-md5:	7ce3565fd5c81244149bb44bf997eb8b
 URL:		https://github.com/eqrion/cbindgen
 BuildRequires:	cargo
 BuildRequires:	rpmbuild(macros) >= 2.004
-BuildRequires:	rust
+BuildRequires:	rust >= 1.74
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 ExclusiveArch:	%{rust_arches}
@@ -61,7 +61,6 @@ rm -rf $RPM_BUILD_ROOT
 export CARGO_HOME="$(pwd)/.cargo"
 
 %cargo_install --frozen --root $RPM_BUILD_ROOT%{_prefix} --path $PWD
-%{__rm} $RPM_BUILD_ROOT%{_prefix}/.crates*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
