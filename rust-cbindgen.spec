@@ -19,10 +19,11 @@ Source1:	cbindgen-crates-%{crates_ver}.tar.xz
 # Source1-md5:	7ce3565fd5c81244149bb44bf997eb8b
 URL:		https://github.com/eqrion/cbindgen
 BuildRequires:	cargo
-BuildRequires:	rpmbuild(macros) >= 2.004
+BuildRequires:	rpmbuild(macros) >= 2.050
 BuildRequires:	rust >= 1.74
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+%{?rust_req}
 ExclusiveArch:	%{rust_arches}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
